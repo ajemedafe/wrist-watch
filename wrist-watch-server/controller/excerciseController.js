@@ -4,9 +4,12 @@ const knex = require("knex")(require("../knexfile"));
 const getAllExcercises = async (_req, res) => {
 	try {
 		const excercises = await knex("excercises").select(
+			// "id",
+			// "excercise_name",
+			// "thumbnail",
+			// "video"
 			"id",
 			"excercise_name",
-			"thumbnail",
 			"video"
 		);
 		return res.status(200).send(excercises);
@@ -19,7 +22,8 @@ const getAllExcercises = async (_req, res) => {
 const getExcercise = async (req, res) => {
 	try {
 		const excercise = await knex("excercises")
-			.select("id", "excercise_name", "thumbnail", "video")
+			.select("id", "excercise_name", "video")
+			// .select("id", "excercise_name", "thumbnail", "video")
 			.where({ id: req.params.id });
 		return res.status(200).send(excercise);
 		// console.log(excercise);
