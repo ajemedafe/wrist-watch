@@ -5,9 +5,18 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import axios from "axios";
 import Header from "./components/Header/Header";
 import Home from "./Pages/Home/Home";
-import excerciseList from "./Pages/excerciseList/excerciseList";
+import ExcerciseList from "./Pages/excerciseList/ExcerciseList";
+import { useEffect, useState } from "react";
+import { getExcercises } from "./utils";
 
 export default function App() {
+	const [excercises, setExcercises] = useState(null);
+	console.log(excercises);
+
+	useEffect(() => {
+		getExcercises();
+	}, []);
+
 	return (
 		<>
 			<BrowserRouter>
@@ -15,7 +24,7 @@ export default function App() {
 				<main>
 					<Routes>
 						<Route path="/" element={<Home />} />
-						<Route path="/excercises" element={<excerciseList />} />
+						<Route path="/excercises" element={<ExcerciseList />} />
 						<Route path="/excercises/video" element={<h1>videos</h1>} />
 						<Route path="/excercises/video/:id" element={<h1>videos/id</h1>} />
 						<Route path="/achievments" element={<h1>nice to have</h1>} />
