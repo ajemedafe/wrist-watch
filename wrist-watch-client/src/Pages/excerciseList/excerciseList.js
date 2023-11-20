@@ -1,7 +1,11 @@
+import "./excerciseList.scss";
+
 function excerciseList() {
 	return (
 		<>
-			<div> excerciseList</div>
+			<section className="excerciselist">
+				<p>excercises</p>
+			</section>
 		</>
 	);
 }
