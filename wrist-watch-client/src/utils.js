@@ -11,4 +11,13 @@ const getExcercises = async () => {
 	}
 };
 
-export { getExcercises };
+const getSingleExcercise = async (vidId) => {
+	try {
+		const { data } = await axios.get(`${baseUrl}/excercises/${vidId}`);
+		return data;
+	} catch (error) {
+		console.error(error);
+	}
+};
+
+export { getExcercises, getSingleExcercise };

@@ -1,0 +1,14 @@
+.excerciselist {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+
+	&__name {
+		font-size: 2rem;
+	}
+
+	&__thumbnail {
+		height: 30%;
+		width: auto;
+	}
+}
