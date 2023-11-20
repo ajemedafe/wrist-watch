@@ -1,5 +1,6 @@
 import { useState } from "react";
-import "./excerciseList.scss";
+import "./ExcerciseList.scss";
+import ExcerciseVideoCard from "../../components/ExcerciseVideoCard/ExcerciseVideoCard";
 import { Link } from "react-router-dom";
 
 function ExcerciseList({ excercises, vidId }) {
@@ -24,14 +25,7 @@ function ExcerciseList({ excercises, vidId }) {
 							// id={excercise.id}
 							to={`/excercises/video/:${excercise.id}`}>
 							{/* onClick={hellofunction}> */}
-							<p key={excercise.id} className="excerciselist__name">
-								{excercise.excercise_name}
-							</p>
-							<img
-								className="excercistlist__thumbnail"
-								src={excercise.thumbnail}
-								alt=""
-							/>
+							<ExcerciseVideoCard excercise={excercise} />
 						</Link>
 					</>
 				))}
