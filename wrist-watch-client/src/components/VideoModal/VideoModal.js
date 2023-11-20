@@ -1,14 +1,14 @@
 import "./VideoModal.scss";
 import { useState } from "react";
 
-function VideoModal({ video, closeVideo }) {
+function VideoModal({ video, videoClose }) {
 	return (
 		<>
 			<div className="modal">
 				<div className="modal-content">
-					<span className="close" onClick={closeVideo}>
+					<button className="close" onClick={videoClose}>
 						&times;
-					</span>
+					</button>
 					<iframe
 						title="Video"
 						width="560"
