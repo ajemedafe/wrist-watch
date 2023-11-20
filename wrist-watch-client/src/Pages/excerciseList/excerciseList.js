@@ -39,8 +39,9 @@ function ExcerciseList({ excercises, vidId }) {
 						</Link>
 					</>
 				))}
-				{viewVideo && <VideoModal video={viewVideo} videoClose={closeVideo} />}
 			</section>
+
+			{viewVideo && <VideoModal video={viewVideo} videoClose={closeVideo} />}
 		</>
 	);
 }
