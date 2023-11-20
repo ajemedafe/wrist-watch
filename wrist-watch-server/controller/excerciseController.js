@@ -10,6 +10,7 @@ const getAllExcercises = async (_req, res) => {
 			// "video"
 			"id",
 			"excercise_name",
+			"thumbnail",
 			"video"
 		);
 		return res.status(200).send(excercises);

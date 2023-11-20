@@ -5,7 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import axios from "axios";
 import Header from "./components/Header/Header";
 import Home from "./Pages/Home/Home";
-import excerciseList from "./Pages/excerciseList/ExcerciseList";
+import excerciseList from "./Pages/excerciseList/excerciseList";
 
 export default function App() {
 	return (
