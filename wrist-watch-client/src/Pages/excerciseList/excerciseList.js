@@ -1,9 +1,12 @@
 import { useState } from "react";
 import "./ExcerciseList.scss";
 import ExcerciseVideoCard from "../../components/ExcerciseVideoCard/ExcerciseVideoCard";
+import VideoModal from "../../components/VideoModal/VideoModal";
 import { Link } from "react-router-dom";
 
 function ExcerciseList({ excercises, vidId }) {
+	const [viewVideo, setViewVideo] = useState(null);
+
 	console.log(excercises);
 	// console.log("hello");
 
@@ -12,7 +15,13 @@ function ExcerciseList({ excercises, vidId }) {
 		console.log(vidId);
 	};
 
-	const [viewVideo, setViewVideo] = useState(null);
+	const openVideo = (excercises) => {
+		setViewVideo(excercises.video);
+	};
+
+	const closeVideo = () => {
+		setViewVideo(null);
+	};
 
 	return (
 		<>
@@ -23,12 +32,14 @@ function ExcerciseList({ excercises, vidId }) {
 						<Link
 							key={excercise.id}
 							// id={excercise.id}
+							onClick={() => openVideo(excercise)}
 							to={`/excercises/video/:${excercise.id}`}>
 							{/* onClick={hellofunction}> */}
 							<ExcerciseVideoCard excercise={excercise} />
 						</Link>
 					</>
 				))}
+				{viewVideo && <VideoModal video={viewVideo} videoClose={closeVideo} />}
 			</section>
 		</>
 	);
