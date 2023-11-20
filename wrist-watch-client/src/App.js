@@ -4,7 +4,7 @@ import "./App.scss";
 import { BrowserRouter, Routes, Route, useParams } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Home from "./Pages/Home/Home";
-import ExcerciseList from "./Pages/excerciseList/ExcerciseList";
+import ExcerciseList from "./Pages/excerciseList/excerciseList";
 import { useEffect, useState } from "react";
 import { getExcercises, getSingleExcercise } from "./utils";
 
