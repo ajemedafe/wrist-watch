@@ -11,8 +11,6 @@ import { getExcercises, getSingleExcercise } from "./utils";
 export default function App() {
 	const [excercises, setExcercises] = useState(null);
 	const [singleExcercise, setSingleExcercise] = useState(null);
-	console.log(excercises);
-	console.log(singleExcercise);
 
 	const { vidId } = useParams();
 
@@ -45,7 +43,7 @@ export default function App() {
 				<main>
 					<Header />
 					<Routes>
-						<Route path="/" element={<Home />} />
+						<Route path="/" element={<Home excercises={excercises} />} />
 						<Route
 							path="/excercises"
 							element={<ExcerciseList excercises={excercises} />}

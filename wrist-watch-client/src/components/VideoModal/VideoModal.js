@@ -4,7 +4,7 @@ import { useState } from "react";
 function VideoModal({ video, videoClose }) {
 	return (
 		<>
-			<div className="modal">
+			<div onClick={videoClose} className="modal">
 				<div className="modal-content">
 					<iframe
 						title="Video"
@@ -15,7 +15,7 @@ function VideoModal({ video, videoClose }) {
 						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 						allowFullScreen></iframe>
 					<button className="close" onClick={videoClose}>
-						&times;
+						Close
 					</button>
 				</div>
 			</div>

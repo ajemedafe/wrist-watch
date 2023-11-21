@@ -1,25 +1,14 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { getExcercises } from "../../utils";
+import ExcerciseTimer from "../../components/ExcerciseTimer/ExcerciseTimer";
 
-function Home() {
-	const [image, setimage] = useState();
-
-	useEffect(() => {
-		const { data } = getExcercises();
-		console.log(data);
-	}, []);
+function Home({ excercises }) {
+	// console.log(excercises);
 
 	return (
 		<>
-			{/* <div> test</div>
-			<img src={image} alt="" srcset="" /> */}
-			<form className="wrist-form">
-				<label htmlFor=""></label>
-				<input type="number" name="" />
-				<label htmlFor=""></label>
-				<input type="number" name="" />
-			</form>
+			<ExcerciseTimer excercises={excercises} />
 		</>
 	);
 }

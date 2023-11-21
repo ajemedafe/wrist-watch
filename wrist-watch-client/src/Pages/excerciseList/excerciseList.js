@@ -7,14 +7,6 @@ import { Link } from "react-router-dom";
 function ExcerciseList({ excercises, vidId }) {
 	const [viewVideo, setViewVideo] = useState(null);
 
-	console.log(excercises);
-	// console.log("hello");
-
-	const hellofunction = () => {
-		console.log("hello");
-		console.log(vidId);
-	};
-
 	const openVideo = (excercises) => {
 		setViewVideo(excercises.video);
 	};
@@ -26,22 +18,18 @@ function ExcerciseList({ excercises, vidId }) {
 	return (
 		<>
 			<section className="excerciselist">
-				<p>excercises</p>
 				{excercises?.map((excercise) => (
 					<>
 						<Link
 							key={excercise.id}
-							// id={excercise.id}
 							onClick={() => openVideo(excercise)}
 							to={`/excercises/video/:${excercise.id}`}>
-							{/* onClick={hellofunction}> */}
 							<ExcerciseVideoCard excercise={excercise} />
 						</Link>
 					</>
 				))}
+				{viewVideo && <VideoModal video={viewVideo} videoClose={closeVideo} />}
 			</section>
-
-			{viewVideo && <VideoModal video={viewVideo} videoClose={closeVideo} />}
 		</>
 	);
 }
