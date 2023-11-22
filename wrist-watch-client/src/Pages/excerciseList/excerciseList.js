@@ -1,10 +1,21 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./ExcerciseList.scss";
 import ExcerciseVideoCard from "../../components/ExcerciseVideoCard/ExcerciseVideoCard";
 import VideoModal from "../../components/VideoModal/VideoModal";
 import { Link } from "react-router-dom";
 
-function ExcerciseList({ excercises, vidId }) {
+function ExcerciseList({
+	excercises,
+	vidId,
+	totalTime,
+	setTotalTime,
+	remainingTime,
+	setRemainingTime,
+	timerRunning,
+	setTimerRunning,
+	fields,
+	setFields,
+}) {
 	const [viewVideo, setViewVideo] = useState(null);
 
 	const openVideo = (excercises) => {

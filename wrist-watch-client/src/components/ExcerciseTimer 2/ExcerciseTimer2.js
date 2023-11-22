@@ -1,25 +1,14 @@
-import "./ExcerciseTimer.scss";
-import { useState, useEffect } from "react";
-import { useTimer } from "./ExcerciseTimerContext";
+import "./ExcerciseTimer2.scss";
+import { useEffect, useState } from "react";
+import { useTimer } from "./ExcerciseTimerContext2";
 
-function ExcerciseTimer({
-	excercises,
-	totalTime,
-	setTotalTime,
-	remainingTime,
-	setRemainingTime,
-	timerRunning,
-	setTimerRunning,
-}) {
-	// const { timerState, setTimerState } = useTimer();
-	// const { timerRunning, remainingTime, timerFinish, totalTime } = timerState;
-	// console.log(excercises);
+function ExcerciseTimer({ excercises }) {
+	// console.log("timerState");
+	// console.log(useTimer());
+	const { timerState, setTimerState } = useTimer();
 
-	const excerciseData = excercises;
-
-	console.log(totalTime);
-
-	// excercises prop contains data from the api
+	const { timerRunning, remainingTime, timerFinish } = timerState;
+	// console.log(timerRunning);
 
 	const [fields, setFields] = useState({
 		hours: 0,
@@ -27,59 +16,66 @@ function ExcerciseTimer({
 		seconds: 0,
 	});
 
-	// const [totalTime, setTotalTime] = useState(0);
-	// const [remainingTime, setRemainingTime] = useState(0);
-	// const [timerRunning, setTimerRunning] = useState(false);
-	const [timerFinish, setTimerFinish] = useState(false);
-
-	const [startTime, setStartTime] = useState(0);
 	const [validationError, setValidationError] = useState(null);
 
 	useEffect(() => {
-		setTotalTime(
-			fields.hours * 3600 * 1000 +
+		setTimerState((prevState) => ({
+			...prevState,
+			totalTime:
+				fields.hours * 3600 * 1000 +
 				fields.minutes * 60 * 1000 +
-				fields.seconds * 1000
-		);
-	}, [fields]);
+				fields.seconds * 1000,
+		}));
+	}, [fields, setTimerState]);
 
 	useEffect(() => {
-		setRemainingTime(totalTime);
-	}, [totalTime]);
+		setFields((prevFields) => ({
+			...prevFields,
+			hours: Math.floor(remainingTime / (3600 * 1000)),
+			minutes: Math.floor((remainingTime % (3600 * 1000)) / (60 * 1000)),
+			seconds: Math.floor((remainingTime % (60 * 1000)) / 1000),
+		}));
+	}, [remainingTime]);
 
 	useEffect(() => {
 		let intervalId;
 
 		if (timerRunning && remainingTime > 0) {
 			intervalId = setInterval(() => {
-				setRemainingTime((prevTime) => prevTime - 1000);
+				setTimerState((prevState) => ({
+					...prevState,
+					remainingTime: prevState.remainingTime - 1000,
+				}));
 			}, 1000);
 		}
 
 		return () => clearInterval(intervalId);
-	}, [timerRunning, remainingTime]);
+	}, [timerRunning, remainingTime, setTimerState]);
 
 	useEffect(() => {
 		if (remainingTime === 0) {
-			setTimerRunning(false);
-			setTimerFinish(true);
+			setTimerState((prevState) => ({
+				...prevState,
+				timerRunning: false,
+				timerFinish: true,
+			}));
 			handleTimerComplete();
 		}
-	}, [remainingTime]);
+	}, [remainingTime, setTimerState]);
 
 	const handleTimerComplete = () => {
 		console.log("timer has stopped running");
 	};
 
 	const handleChange = (event) => {
-		// setFields({ ...fields, [event.target.name]: event.target.value });
 		const { name, value } = event.target;
 		setValidationError(null);
+
 		if (name === "hours" && (value < 0 || value > 24)) {
 			setValidationError("Hours must be between 0 and 24");
 		} else {
 			setFields({ ...fields, [name]: value });
-			setTimerFinish(false);
+			// setTimerFinish(false);
 		}
 	};
 
@@ -89,62 +85,28 @@ function ExcerciseTimer({
 		if (fields.hours < 0 || fields.minutes < 0 || fields.seconds < 0) {
 			setValidationError("Input values cannot be negative");
 		} else {
-			setTimerRunning(true);
+			setTimerState((prevState) => ({
+				...prevState,
+				timerRunning: true,
+			}));
 		}
 	};
 
 	const handlePause = () => {
-		setTimerRunning(false);
+		setTimerState((prevState) => ({
+			...prevState,
+			timerRunning: false,
+		}));
 	};
 
 	const handleReset = () => {
-		setTimerRunning(false);
-		setTimerFinish(false);
-		setRemainingTime(totalTime);
-		clearInterval();
+		setTimerState((prevState) => ({
+			...prevState,
+			timerRunning: false,
+			timerFinish: false,
+			remainingTime: prevState.totalTime,
+		}));
 	};
-
-	// const apiCallInterval = () => {
-	// 	let timeLeft = remainingTime;
-
-	// 	const initalTime = totalTime;
-
-	// 	let excercises = excerciseData;
-
-	// 	let hours = fields.hours * 3600 * 1000;
-	// 	let minutes = fields.minutes * 60 * 1000;
-	// 	let seconds = fields.seconds * 1000;
-
-	// 	let sum = hours + minutes + seconds;
-
-	// 	// for (let i = 0; i < excercises?.length; i++) {
-	// 	// 	console.log(excercises[i]);
-	// 	// }
-
-	// 	// excercises?.forEach((excercise) => {
-	// 	// 	console.log(excercise);
-	// 	// });
-
-	// 	console.log(timeLeft);
-
-	// 	console.log(hours);
-	// 	console.log(minutes);
-	// 	console.log(seconds);
-	// 	console.log(totalTime);
-
-	// 	if (sum === initalTime) {
-	// 		return console.log("this sum is correct");
-	// 	} else {
-	// 		console.log("this is absolutely wrong mate");
-	// 	}
-
-	// 	// return console.log([timeLeft, initalTime]);
-	// 	return;
-	// };
-
-	// apiCallInterval();
-
-	// console.log(totalTime);
 
 	return (
 		<>
@@ -193,7 +155,6 @@ function ExcerciseTimer({
 		</>
 	);
 }
-
 export default ExcerciseTimer;
 
 //
