@@ -151,7 +151,7 @@ function ExcerciseTimer({
 
 		// console.log("this sum is correct");
 
-		if (timeLeft <= 1000 && timeLeft > 0) {
+		if (timeLeft <= 3000 && timeLeft > 0) {
 			const windowFeatures = "left=450,top=100,width=400,height=120";
 
 			return window.open(
