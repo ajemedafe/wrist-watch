@@ -8,6 +8,7 @@ import ExcerciseList from "./Pages/ExcerciseList/ExcerciseList";
 import { useEffect, useState } from "react";
 import { getExcercises, getSingleExcercise } from "./utils";
 import { TimerProvider } from "./components/ExcerciseTimer/ExcerciseTimerContext";
+import VideoChoice from "./Pages/VideoChoice/VideoChoice";
 
 export default function App() {
 	const [excercises, setExcercises] = useState(null);
@@ -57,52 +58,79 @@ export default function App() {
 			<BrowserRouter>
 				<main>
 					{/* <TimerProvider> */}
-					<Header />
+
 					<Routes>
 						<Route
 							path="/"
 							element={
-								<Home
-									totalTime={totalTime}
-									setTotalTime={setTotalTime}
-									remainingTime={remainingTime}
-									setRemainingTime={setRemainingTime}
-									timerRunning={timerRunning}
-									setTimerRunning={setTimerRunning}
-									excercises={excercises}
-								/>
+								<>
+									<Header />
+									<Home
+										totalTime={totalTime}
+										setTotalTime={setTotalTime}
+										remainingTime={remainingTime}
+										setRemainingTime={setRemainingTime}
+										timerRunning={timerRunning}
+										setTimerRunning={setTimerRunning}
+										excercises={excercises}
+									/>
+								</>
 							}
 						/>
 						<Route
 							path="/excercises"
 							element={
-								<ExcerciseList
-									totalTime={totalTime}
-									setTotalTime={setTotalTime}
-									remainingTime={remainingTime}
-									setRemainingTime={setRemainingTime}
-									timerRunning={timerRunning}
-									setTimerRunning={setTimerRunning}
-									excercises={excercises}
-								/>
+								<>
+									<Header />
+									<ExcerciseList
+										totalTime={totalTime}
+										setTotalTime={setTotalTime}
+										remainingTime={remainingTime}
+										setRemainingTime={setRemainingTime}
+										timerRunning={timerRunning}
+										setTimerRunning={setTimerRunning}
+										excercises={excercises}
+									/>
+								</>
 							}
 						/>
 						<Route
 							path="/excercises/video/:id"
 							element={
-								<ExcerciseList
-									totalTime={totalTime}
-									setTotalTime={setTotalTime}
-									remainingTime={remainingTime}
-									setRemainingTime={setRemainingTime}
-									timerRunning={timerRunning}
-									setTimerRunning={setTimerRunning}
-									vidId={vidId}
-									excercises={excercises}
-								/>
+								<>
+									<Header />
+									<ExcerciseList
+										totalTime={totalTime}
+										setTotalTime={setTotalTime}
+										remainingTime={remainingTime}
+										setRemainingTime={setRemainingTime}
+										timerRunning={timerRunning}
+										setTimerRunning={setTimerRunning}
+										vidId={vidId}
+										excercises={excercises}
+									/>
+								</>
 							}
 						/>
-						<Route path="/achievments" element={<h1>nice to have</h1>} />
+						<Route
+							path="/video"
+							element={<VideoChoice excercises={excercises} />}
+						/>
+						{/* <Route
+							path="/video"
+							render={(props) =>
+								props.location.pathname !== "/video" && <Header />
+							}
+						/> */}
+						<Route
+							path="/achievments"
+							element={
+								<>
+									<Header />
+									<h1>nice to have</h1>
+								</>
+							}
+						/>
 					</Routes>
 					{/* </TimerProvider> */}
 				</main>

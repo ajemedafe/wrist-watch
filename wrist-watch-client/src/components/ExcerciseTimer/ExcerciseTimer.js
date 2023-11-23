@@ -153,11 +153,11 @@ function ExcerciseTimer({
 		// console.log("this sum is correct");
 
 		if (timeLeft <= 1000 && timeLeft > 0) {
-			const windowFeatures = "left=100,top=100,width=550,height=550";
+			const windowFeatures = "left=450,top=100,width=400,height=200";
 
 			return window.open(
-				"http://localhost:3000/excercises/video/:1",
-				"excercisewindow",
+				"http://localhost:3000/video/",
+				"videowindow",
 				// "popup",
 				windowFeatures
 			);
