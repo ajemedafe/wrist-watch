@@ -7,7 +7,6 @@ import Home from "./Pages/Home/Home";
 import ExcerciseList from "./Pages/ExcerciseList/ExcerciseList";
 import { useEffect, useState } from "react";
 import { getExcercises, getSingleExcercise } from "./utils";
-import { TimerProvider } from "./components/ExcerciseTimer/ExcerciseTimerContext";
 import VideoChoice from "./Pages/VideoChoice/VideoChoice";
 
 export default function App() {

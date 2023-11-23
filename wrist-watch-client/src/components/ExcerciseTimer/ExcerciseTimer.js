@@ -1,6 +1,5 @@
 import "./ExcerciseTimer.scss";
 import { useState, useEffect } from "react";
-import { useTimer } from "./ExcerciseTimerContext";
 
 function ExcerciseTimer({
 	excercises,

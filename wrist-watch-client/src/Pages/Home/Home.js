@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { getExcercises } from "../../utils";
 import ExcerciseTimer from "../../components/ExcerciseTimer/ExcerciseTimer";
-import ExcerciseTimer2 from "../../components/ExcerciseTimer 2/ExcerciseTimer2";
 import "./Home.scss";
 
 function Home({
@@ -31,11 +30,6 @@ function Home({
 						excercises={excercises}
 					/>
 				</article>
-				{/* 
-				<article>
-					<p>modified timer</p>
-					<ExcerciseTimer2 excercises={excercises} />
-				</article> */}
 			</section>
 		</>
 	);
