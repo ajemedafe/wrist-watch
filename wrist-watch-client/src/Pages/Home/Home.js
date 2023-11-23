@@ -31,11 +31,11 @@ function Home({
 						excercises={excercises}
 					/>
 				</article>
-
+				{/* 
 				<article>
 					<p>modified timer</p>
-					{/* <ExcerciseTimer2 excercises={excercises} /> */}
-				</article>
+					<ExcerciseTimer2 excercises={excercises} />
+				</article> */}
 			</section>
 		</>
 	);

@@ -75,8 +75,23 @@ function ExcerciseTimer({
 		// setFields({ ...fields, [event.target.name]: event.target.value });
 		const { name, value } = event.target;
 		setValidationError(null);
+
 		if (name === "hours" && (value < 0 || value > 24)) {
 			setValidationError("Hours must be between 0 and 24");
+		} else {
+			setFields({ ...fields, [name]: value });
+			setTimerFinish(false);
+		}
+
+		if (name === "minutes" && (value < 0 || value > 60)) {
+			setValidationError("Hours must be between 0 and 60");
+		} else {
+			setFields({ ...fields, [name]: value });
+			setTimerFinish(false);
+		}
+
+		if (name === "seconds" && (value < 0 || value > 60)) {
+			setValidationError("Hours must be between 0 and 60");
 		} else {
 			setFields({ ...fields, [name]: value });
 			setTimerFinish(false);
@@ -104,45 +119,55 @@ function ExcerciseTimer({
 		clearInterval();
 	};
 
-	// const apiCallInterval = () => {
-	// 	let timeLeft = remainingTime;
+	const apiCallInterval = () => {
+		const timeLeft = remainingTime;
 
-	// 	const initalTime = totalTime;
+		const initalTime = totalTime;
 
-	// 	let excercises = excerciseData;
+		const excercises = excerciseData;
 
-	// 	let hours = fields.hours * 3600 * 1000;
-	// 	let minutes = fields.minutes * 60 * 1000;
-	// 	let seconds = fields.seconds * 1000;
+		const hours = fields.hours * 3600 * 1000;
+		const minutes = fields.minutes * 60 * 1000;
+		const seconds = fields.seconds * 1000;
 
-	// 	let sum = hours + minutes + seconds;
+		const sum = hours + minutes + seconds;
+		const halfsum = sum / 2;
 
-	// 	// for (let i = 0; i < excercises?.length; i++) {
-	// 	// 	console.log(excercises[i]);
-	// 	// }
+		// console.log(halfsum);
 
-	// 	// excercises?.forEach((excercise) => {
-	// 	// 	console.log(excercise);
-	// 	// });
+		// for (let i = 0; i < excercises?.length; i++) {
+		// 	console.log(excercises[i]);
+		// }
 
-	// 	console.log(timeLeft);
+		// excercises?.forEach((excercise) => {
+		// 	console.log(excercise);
+		// });
 
-	// 	console.log(hours);
-	// 	console.log(minutes);
-	// 	console.log(seconds);
-	// 	console.log(totalTime);
+		// console.log(timeLeft);
 
-	// 	if (sum === initalTime) {
-	// 		return console.log("this sum is correct");
-	// 	} else {
-	// 		console.log("this is absolutely wrong mate");
-	// 	}
+		// console.log(hours);
+		// console.log(minutes);
+		// console.log(seconds);
+		// console.log(totalTime);
 
-	// 	// return console.log([timeLeft, initalTime]);
-	// 	return;
-	// };
+		// console.log("this sum is correct");
 
-	// apiCallInterval();
+		if (timeLeft <= 1000 && timeLeft > 0) {
+			const windowFeatures = "left=100,top=100,width=550,height=550";
+
+			return window.open(
+				"http://localhost:3000/excercises/video/:1",
+				"excercisewindow",
+				// "popup",
+				windowFeatures
+			);
+		}
+
+		// return console.log([timeLeft, initalTime]);
+		return;
+	};
+
+	apiCallInterval();
 
 	// console.log(totalTime);
 
