@@ -5,7 +5,7 @@ function excerciseVideoCard({ excercise }) {
 		<>
 			<p className="excerciselist__name">{excercise.excercise_name}</p>
 			<img
-				className="excercistlist__thumbnail"
+				className="excerciselist__thumbnail"
 				src={excercise.thumbnail}
 				alt=""
 			/>

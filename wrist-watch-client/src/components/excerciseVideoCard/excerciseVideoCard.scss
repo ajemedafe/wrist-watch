@@ -1,0 +1,8 @@
+.excerciselist {
+	display: flex;
+	gap: 1rem;
+	&__thumbnail {
+		height: 12rem;
+		width: auto;
+	}
+}
