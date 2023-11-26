@@ -6,14 +6,17 @@ function VideoModal({ video, videoClose }) {
 		<>
 			<div onClick={videoClose} className="modal">
 				<div className="modal-content">
-					<iframe
+					{/* <iframe
 						title="Video"
 						width="560"
 						height="315"
 						src={video}
 						frameBorder="0"
 						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-						allowFullScreen></iframe>
+						allowFullScreen></iframe> */}
+					<video width="560" height="315" controls>
+						<source src={video} type="video/mp4" />
+					</video>
 					<button className="close" onClick={videoClose}>
 						Close
 					</button>

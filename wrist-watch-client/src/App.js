@@ -7,7 +7,9 @@ import Home from "./Pages/Home/Home";
 import ExcerciseList from "./Pages/ExcerciseList/ExcerciseList";
 import { useEffect, useState } from "react";
 import { getExcercises, getSingleExcercise } from "./utils";
-import VideoChoice from "./Pages/VideoChoice/VideoChoice";
+import VideoChoiceWrist from "./Pages/VideoChoiceWrist/VideoChoiceWrist";
+import VideoChoiceArm from "./Pages/VideoChoiceArm/VideoChoiceArm";
+import VideoChoiceNeck from "./Pages/VideoChoiceNeck/VideoChoiceNeck";
 
 export default function App() {
 	const [excercises, setExcercises] = useState(null);
@@ -111,10 +113,9 @@ export default function App() {
 								</>
 							}
 						/>
-						<Route
-							path="/video"
-							element={<VideoChoice excercises={excercises} />}
-						/>
+						<Route path="/video-wrist" element={<VideoChoiceWrist />} />
+						<Route path="/video-arm" element={<VideoChoiceArm />} />
+						<Route path="/video-neck" element={<VideoChoiceNeck />} />
 						{/* <Route
 							path="/video"
 							render={(props) =>

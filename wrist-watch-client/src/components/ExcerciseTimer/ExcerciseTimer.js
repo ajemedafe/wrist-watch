@@ -129,6 +129,14 @@ function ExcerciseTimer({
 		const minutes = fields.minutes * 60 * 1000;
 		const seconds = fields.seconds * 1000;
 
+		const convertedHour = fields.hours;
+		const convertedMinutes = fields.minutes;
+		const convertedSeconds = fields.seconds;
+
+		console.log(convertedHour);
+		console.log(convertedMinutes);
+		console.log(convertedSeconds);
+
 		const sum = hours + minutes + seconds;
 		const halfsum = sum / 2;
 
@@ -151,16 +159,49 @@ function ExcerciseTimer({
 
 		// console.log("this sum is correct");
 
-		if (timeLeft <= 3000 && timeLeft > 0) {
+		if (timeLeft === 55000 && timeLeft > 0) {
 			const windowFeatures = "left=450,top=100,width=400,height=120";
 
 			return window.open(
-				"http://localhost:3000/video/",
-				"videowindow",
+				"http://localhost:3000/video-wrist/",
+				"videoWristwindow",
 				// "popup",
 				windowFeatures
 			);
 		}
+
+		if (timeLeft === 40000 && timeLeft > 0) {
+			const windowFeatures = "left=450,top=100,width=400,height=120";
+
+			return window.open(
+				"http://localhost:3000/video-arm/",
+				"videoArmwindow",
+				// "popup",
+				windowFeatures
+			);
+		}
+
+		if (timeLeft === 20000 && timeLeft > 0) {
+			const windowFeatures = "left=450,top=100,width=400,height=120";
+
+			return window.open(
+				"http://localhost:3000/video-neck/",
+				"videoNeckwindow",
+				// "popup",
+				windowFeatures
+			);
+		}
+
+		// if (timeLeft === "ok" && timeLeft > 0) {
+		// 	const windowFeatures = "left=450,top=100,width=400,height=120";
+
+		// 	return window.open(
+		// 		"http://localhost:3000/video-neck/",
+		// 		"videoNeckwindow",
+		// 		// "popup",
+		// 		windowFeatures
+		// 	);
+		// }
 
 		// return console.log([timeLeft, initalTime]);
 		return;
