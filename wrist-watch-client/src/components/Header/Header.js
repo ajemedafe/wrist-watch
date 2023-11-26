@@ -13,12 +13,12 @@ function Header() {
 			<header className="Header">
 				<nav className="Nav">
 					<Link to="/" className={activeLink("/") ? "active" : ""}>
-						home
+						Timer
 					</Link>
 					<Link
 						to="/excercises"
 						className={activeLink("/excercises") ? "active" : ""}>
-						excercise list
+						Excercise List
 					</Link>
 				</nav>
 			</header>

@@ -19,7 +19,6 @@ function Home({
 		<>
 			<section className="section">
 				<article>
-					<p>original timer</p>
 					<ExcerciseTimer
 						totalTime={totalTime}
 						setTotalTime={setTotalTime}

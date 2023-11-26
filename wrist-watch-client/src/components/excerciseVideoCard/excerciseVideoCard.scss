@@ -1,8 +1,14 @@
 .excerciselist {
 	display: flex;
 	gap: 1rem;
+
+	&__name {
+		text-decoration: none;
+	}
+
 	&__thumbnail {
 		height: 12rem;
 		width: auto;
+		border-radius: 1rem;
 	}
 }

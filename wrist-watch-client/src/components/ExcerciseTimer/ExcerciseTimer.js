@@ -10,15 +10,9 @@ function ExcerciseTimer({
 	timerRunning,
 	setTimerRunning,
 }) {
-	// const { timerState, setTimerState } = useTimer();
-	// const { timerRunning, remainingTime, timerFinish, totalTime } = timerState;
-	// console.log(excercises);
-
 	const excerciseData = excercises;
 
 	console.log(totalTime);
-
-	// excercises prop contains data from the api
 
 	const [fields, setFields] = useState({
 		hours: 0,
@@ -26,9 +20,6 @@ function ExcerciseTimer({
 		seconds: 0,
 	});
 
-	// const [totalTime, setTotalTime] = useState(0);
-	// const [remainingTime, setRemainingTime] = useState(0);
-	// const [timerRunning, setTimerRunning] = useState(false);
 	const [timerFinish, setTimerFinish] = useState(false);
 
 	const [startTime, setStartTime] = useState(0);
@@ -71,7 +62,6 @@ function ExcerciseTimer({
 	};
 
 	const handleChange = (event) => {
-		// setFields({ ...fields, [event.target.name]: event.target.value });
 		const { name, value } = event.target;
 		setValidationError(null);
 
@@ -177,47 +167,63 @@ function ExcerciseTimer({
 
 	return (
 		<>
-			<section>
-				<form onSubmit={handleSubmit} action="">
-					<label htmlFor="hours">
-						hours:
-						<input
-							type="number"
-							name="hours"
-							onChange={handleChange}
-							value={fields.hours}
-						/>
-					</label>
-					<label htmlFor="minutes">
-						minutes:
-						<input
-							type="number"
-							name="minutes"
-							onChange={handleChange}
-							value={fields.minutes}
-						/>
-					</label>
+			<section className="timer-section">
+				<div className="timer-section-remaining">
+					Time remaining: {remainingTime}{" "}
+				</div>
+				{timerFinish && <div>Time has ended</div>}
+				<form className="timer-section-form" onSubmit={handleSubmit} action="">
+					<div className="timer-section-group__wrapper">
+						<div className="timer-section__wrapper">
+							<label className="timer-section-hours" htmlFor="hours">
+								hours:
+							</label>
+							<input
+								type="number"
+								name="hours"
+								className="timer-section-input"
+								onChange={handleChange}
+								value={fields.hours}
+							/>
+						</div>
 
-					<label htmlFor="seconds">
-						seconds:
-						<input
-							type="number"
-							name="seconds"
-							onChange={handleChange}
-							value={fields.seconds}
-						/>
-					</label>
-					<button type="submit">START</button>
-					<button type="button" onClick={handlePause}>
-						PAUSE
-					</button>
-					<button type="button" onClick={handleReset}>
-						RESET
-					</button>
+						<div className="timer-section__wrapper">
+							<label className="timer-section-minutes" htmlFor="minutes">
+								minutes:
+							</label>
+							<input
+								type="number"
+								name="minutes"
+								className="timer-section-input"
+								onChange={handleChange}
+								value={fields.minutes}
+							/>
+						</div>
+
+						<div className="timer-section__wrapper">
+							<label className="timer-section-seconds" htmlFor="seconds">
+								seconds:
+							</label>
+							<input
+								type="number"
+								name="seconds"
+								className="timer-section-input"
+								onChange={handleChange}
+								value={fields.seconds}
+							/>
+						</div>
+					</div>
+					<div className="timer-section-timer__wrapper">
+						<button type="submit">START</button>
+						<button type="button" onClick={handlePause}>
+							PAUSE
+						</button>
+						<button type="button" onClick={handleReset}>
+							RESET
+						</button>
+					</div>
 				</form>
 				{validationError && <div className="error">{validationError}</div>}
-				<div>Time remaining: {remainingTime} </div>
-				{timerFinish && <div>Time has ended</div>}
 			</section>
 		</>
 	);

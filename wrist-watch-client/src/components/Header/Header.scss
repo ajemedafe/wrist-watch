@@ -1,9 +1,18 @@
-nav {
+@use "../../Styles/partials/mixins" as *;
+@use "../../Styles/partials/resets" as *;
+@use "../../Styles/partials/variables" as *;
+@use "../../Styles/partials/typography" as *;
+
+.Header {
+	margin: 0;
+}
+
+.Nav {
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
 
-	background-color: #eee;
+	background-color: $brainflix-DarkBlue;
 	padding: 10px;
 
 	a {

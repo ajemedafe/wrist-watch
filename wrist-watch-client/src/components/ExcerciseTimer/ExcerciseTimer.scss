@@ -1,0 +1,46 @@
+@use "../../Styles/partials/mixins" as *;
+@use "../../Styles/partials/resets" as *;
+@use "../../Styles/partials/variables" as *;
+@use "../../Styles/partials/typography" as *;
+
+.timer-section {
+	display: flex;
+	flex-direction: column;
+	background-color: $Periwinkle;
+	text-align: center;
+
+	&-form {
+		display: flex;
+		flex-direction: column;
+	}
+
+	&-remaining {
+		padding: 1rem 0;
+	}
+
+	&__wrapper {
+		text-align: center;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		margin-bottom: 1rem;
+	}
+
+	&-group__wrapper {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+	}
+
+	&-timer__wrapper {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-evenly;
+		padding-bottom: 100vh;
+	}
+
+	&-input {
+		text-align: center;
+		width: 4rem;
+	}
+}
