@@ -9,6 +9,11 @@
 	background-color: $Periwinkle;
 	text-align: center;
 
+	&-logo {
+		padding: 1rem 0;
+		font-size: 4rem;
+	}
+
 	&-form {
 		display: flex;
 		flex-direction: column;

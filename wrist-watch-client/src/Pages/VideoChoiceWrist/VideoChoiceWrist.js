@@ -38,7 +38,7 @@ function VideoChoiceWrist() {
 
 	const resizeWindow = () => {
 		const currentWindow = window;
-		const newWidth = 650;
+		const newWidth = 630;
 		const newHeight = 470;
 
 		currentWindow.resizeTo(newWidth, newHeight);
@@ -109,12 +109,15 @@ function VideoChoiceWrist() {
 
 				{viewVideo && (
 					<>
-						<div>
+						<div className="video__wrapper">
 							<video width="560" height="315" controls>
 								<source src={WristArray[randomInt].video} type="video/mp4" />
 							</video>
 						</div>
-						<button type="button" onClick={closeVideo}>
+						<button
+							className="video__button"
+							type="button"
+							onClick={closeVideo}>
 							close
 						</button>
 					</>

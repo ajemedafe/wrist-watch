@@ -168,6 +168,8 @@ function ExcerciseTimer({
 	return (
 		<>
 			<section className="timer-section">
+				<h1 className="timer-section-logo">WRIST WATCH </h1>
+
 				<div className="timer-section-remaining">
 					Time remaining: {remainingTime}{" "}
 				</div>

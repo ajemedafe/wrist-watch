@@ -1,3 +1,24 @@
+@use "../../Styles/partials/mixins" as *;
+@use "../../Styles/partials/resets" as *;
+@use "../../Styles/partials/variables" as *;
+@use "../../Styles/partials/typography" as *;
+
+.video {
+	display: flex;
+	justify-content: center;
+
+	&__wrapper {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		margin-bottom: 1rem;
+	}
+
+	&__button {
+		width: 100%;
+	}
+}
+
 .choice-window {
 	display: flex;
 	flex-direction: column;
