@@ -32,7 +32,6 @@ function VideoChoiceArm() {
 		fetchSingleExcercise();
 	}, [vidId]);
 
-	// console.log(excercises);
 	const [viewVideo, setViewVideo] = useState(false);
 	const [viewButton, setViewButton] = useState(true);
 	const [viewTitle, setViewTitle] = useState(true);
@@ -56,13 +55,6 @@ function VideoChoiceArm() {
 		return newArray;
 	}
 
-	// Test:
-	// const inputArray = [
-	// 	{ exercise_name: "Wrist1", otherProperty: "value1" },
-	// 	{ exercise_name: "Wrist2", otherProperty: "value1" },
-	// 	{ exercise_name: "Leg1", otherProperty: "value2" },
-	// 	{ otherProperty: "value3" },
-	// ];
 	const inputArray = excercises;
 
 	const keyword = "Arm";
@@ -77,12 +69,6 @@ function VideoChoiceArm() {
 
 	const openVideo = () => {
 		const windowFeatures = "left=450,top=100,width=560,height=315";
-		// window.close();
-		// return window.open(
-		// 	"https://www.youtube.com/watch?v=xMVaEnw5kpk",
-		// 	"examplevideo",
-		// 	windowFeatures
-		// );
 
 		resizeWindow();
 		setViewButton(false);
@@ -126,14 +112,6 @@ function VideoChoiceArm() {
 				{viewVideo && (
 					<>
 						<div>
-							{/* <iframe
-								title="Video"
-								width="560"
-								height="315"
-								src={excercises[0].video}
-								frameBorder="0"
-								allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-								allowFullScreen></iframe> */}
 							<video width="560" height="315" controls>
 								<source src={armArray[randomInt].video} type="video/mp4" />
 							</video>
