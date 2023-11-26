@@ -140,32 +140,12 @@ function ExcerciseTimer({
 		const sum = hours + minutes + seconds;
 		const halfsum = sum / 2;
 
-		// console.log(halfsum);
-
-		// for (let i = 0; i < excercises?.length; i++) {
-		// 	console.log(excercises[i]);
-		// }
-
-		// excercises?.forEach((excercise) => {
-		// 	console.log(excercise);
-		// });
-
-		// console.log(timeLeft);
-
-		// console.log(hours);
-		// console.log(minutes);
-		// console.log(seconds);
-		// console.log(totalTime);
-
-		// console.log("this sum is correct");
-
 		if (timeLeft === 55000 && timeLeft > 0) {
 			const windowFeatures = "left=450,top=100,width=400,height=120";
 
 			return window.open(
 				"http://localhost:3000/video-wrist/",
 				"videoWristwindow",
-				// "popup",
 				windowFeatures
 			);
 		}
@@ -176,7 +156,6 @@ function ExcerciseTimer({
 			return window.open(
 				"http://localhost:3000/video-arm/",
 				"videoArmwindow",
-				// "popup",
 				windowFeatures
 			);
 		}
@@ -187,29 +166,14 @@ function ExcerciseTimer({
 			return window.open(
 				"http://localhost:3000/video-neck/",
 				"videoNeckwindow",
-				// "popup",
 				windowFeatures
 			);
 		}
 
-		// if (timeLeft === "ok" && timeLeft > 0) {
-		// 	const windowFeatures = "left=450,top=100,width=400,height=120";
-
-		// 	return window.open(
-		// 		"http://localhost:3000/video-neck/",
-		// 		"videoNeckwindow",
-		// 		// "popup",
-		// 		windowFeatures
-		// 	);
-		// }
-
-		// return console.log([timeLeft, initalTime]);
 		return;
 	};
 
 	apiCallInterval();
-
-	// console.log(totalTime);
 
 	return (
 		<>
@@ -253,36 +217,10 @@ function ExcerciseTimer({
 				</form>
 				{validationError && <div className="error">{validationError}</div>}
 				<div>Time remaining: {remainingTime} </div>
-				{timerFinish && <div>mission complete!</div>}
+				{timerFinish && <div>Time has ended</div>}
 			</section>
 		</>
 	);
 }
 
 export default ExcerciseTimer;
-
-//
-
-// const handleSubmit = (event) => {
-// 	event.preventDefault();
-// 	console.log(fields.hours, fields.minutes, fields.seconds);
-
-// 	const totalTime = [
-// 		fields.hours * 3600 * 1000 +
-// 			fields.minutes * 60 * 1000 +
-// 			fields.seconds * 1000,
-// 	];
-// 	return console.log(totalTime);
-// };
-
-//initial api call function
-
-// const apiCallInterval = () => {
-// 	const timeLeft = remainingTime;
-
-// 	const initalTime = totalTime;
-
-// 	return console.log([timeLeft, initalTime]);
-// };
-
-// apiCallInterval();

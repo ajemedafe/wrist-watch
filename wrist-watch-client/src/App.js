@@ -44,12 +44,6 @@ export default function App() {
 	const [remainingTime, setRemainingTime] = useState(0);
 	const [timerRunning, setTimerRunning] = useState(false);
 
-	const [fields, setFields] = useState({
-		hours: 0,
-		minutes: 0,
-		seconds: 0,
-	});
-
 	console.log(totalTime);
 	console.log(remainingTime);
 	console.log(timerRunning);
@@ -58,8 +52,6 @@ export default function App() {
 		<>
 			<BrowserRouter>
 				<main>
-					{/* <TimerProvider> */}
-
 					<Routes>
 						<Route
 							path="/"
@@ -116,12 +108,6 @@ export default function App() {
 						<Route path="/video-wrist" element={<VideoChoiceWrist />} />
 						<Route path="/video-arm" element={<VideoChoiceArm />} />
 						<Route path="/video-neck" element={<VideoChoiceNeck />} />
-						{/* <Route
-							path="/video"
-							render={(props) =>
-								props.location.pathname !== "/video" && <Header />
-							}
-						/> */}
 						<Route
 							path="/achievments"
 							element={
@@ -132,7 +118,6 @@ export default function App() {
 							}
 						/>
 					</Routes>
-					{/* </TimerProvider> */}
 				</main>
 			</BrowserRouter>
 		</>

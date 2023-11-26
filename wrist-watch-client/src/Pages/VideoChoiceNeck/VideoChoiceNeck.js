@@ -32,7 +32,6 @@ function VideoChoiceNeck() {
 		fetchSingleExcercise();
 	}, [vidId]);
 
-	// console.log(excercises);
 	const [viewVideo, setViewVideo] = useState(false);
 	const [viewButton, setViewButton] = useState(true);
 	const [viewTitle, setViewTitle] = useState(true);
@@ -47,12 +46,6 @@ function VideoChoiceNeck() {
 
 	const openVideo = () => {
 		const windowFeatures = "left=450,top=100,width=560,height=315";
-		// window.close();
-		// return window.open(
-		// 	"https://www.youtube.com/watch?v=xMVaEnw5kpk",
-		// 	"examplevideo",
-		// 	windowFeatures
-		// );
 
 		resizeWindow();
 		setViewButton(false);
@@ -96,14 +89,6 @@ function VideoChoiceNeck() {
 				{viewVideo && (
 					<>
 						<div>
-							{/* <iframe
-								title="Video"
-								width="560"
-								height="315"
-								src={excercises[0].video}
-								frameBorder="0"
-								allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-								allowFullScreen></iframe> */}
 							<video width="560" height="315" controls>
 								<source src={excercises[6].video} type="video/mp4" />
 							</video>

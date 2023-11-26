@@ -45,6 +45,4 @@ function ExcerciseList({
 	);
 }
 
-//to={`/excercises/video/:${excercise.id}`}>
-
 export default ExcerciseList;
