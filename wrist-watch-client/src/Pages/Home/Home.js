@@ -18,17 +18,15 @@ function Home({
 	return (
 		<>
 			<section className="section">
-				<article>
-					<ExcerciseTimer
-						totalTime={totalTime}
-						setTotalTime={setTotalTime}
-						remainingTime={remainingTime}
-						setRemainingTime={setRemainingTime}
-						timerRunning={timerRunning}
-						setTimerRunning={setTimerRunning}
-						excercises={excercises}
-					/>
-				</article>
+				<ExcerciseTimer
+					totalTime={totalTime}
+					setTotalTime={setTotalTime}
+					remainingTime={remainingTime}
+					setRemainingTime={setRemainingTime}
+					timerRunning={timerRunning}
+					setTimerRunning={setTimerRunning}
+					excercises={excercises}
+				/>
 			</section>
 		</>
 	);

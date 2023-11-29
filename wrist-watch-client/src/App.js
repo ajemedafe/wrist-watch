@@ -57,16 +57,18 @@ export default function App() {
 							path="/"
 							element={
 								<>
-									<Header />
-									<Home
-										totalTime={totalTime}
-										setTotalTime={setTotalTime}
-										remainingTime={remainingTime}
-										setRemainingTime={setRemainingTime}
-										timerRunning={timerRunning}
-										setTimerRunning={setTimerRunning}
-										excercises={excercises}
-									/>
+									<div className="home__wrapper">
+										<Header />
+										<Home
+											totalTime={totalTime}
+											setTotalTime={setTotalTime}
+											remainingTime={remainingTime}
+											setRemainingTime={setRemainingTime}
+											timerRunning={timerRunning}
+											setTimerRunning={setTimerRunning}
+											excercises={excercises}
+										/>
+									</div>
 								</>
 							}
 						/>
@@ -74,16 +76,18 @@ export default function App() {
 							path="/excercises"
 							element={
 								<>
-									<Header />
-									<ExcerciseList
-										totalTime={totalTime}
-										setTotalTime={setTotalTime}
-										remainingTime={remainingTime}
-										setRemainingTime={setRemainingTime}
-										timerRunning={timerRunning}
-										setTimerRunning={setTimerRunning}
-										excercises={excercises}
-									/>
+									<div className="home__wrapper">
+										<Header />
+										<ExcerciseList
+											totalTime={totalTime}
+											setTotalTime={setTotalTime}
+											remainingTime={remainingTime}
+											setRemainingTime={setRemainingTime}
+											timerRunning={timerRunning}
+											setTimerRunning={setTimerRunning}
+											excercises={excercises}
+										/>
+									</div>
 								</>
 							}
 						/>
@@ -91,17 +95,19 @@ export default function App() {
 							path="/excercises/video/:id"
 							element={
 								<>
-									<Header />
-									<ExcerciseList
-										totalTime={totalTime}
-										setTotalTime={setTotalTime}
-										remainingTime={remainingTime}
-										setRemainingTime={setRemainingTime}
-										timerRunning={timerRunning}
-										setTimerRunning={setTimerRunning}
-										vidId={vidId}
-										excercises={excercises}
-									/>
+									<div className="home__wrapper">
+										<Header />
+										<ExcerciseList
+											totalTime={totalTime}
+											setTotalTime={setTotalTime}
+											remainingTime={remainingTime}
+											setRemainingTime={setRemainingTime}
+											timerRunning={timerRunning}
+											setTimerRunning={setTimerRunning}
+											vidId={vidId}
+											excercises={excercises}
+										/>
+									</div>
 								</>
 							}
 						/>

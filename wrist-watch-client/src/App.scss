@@ -1,0 +1,11 @@
+@use "./Styles/partials/mixins" as *;
+@use "./Styles/partials/resets" as *;
+@use "./Styles/partials/variables" as *;
+@use "./Styles/partials/typography" as *;
+
+.home {
+	&__wrapper {
+		display: flex;
+		flex-direction: row;
+	}
+}

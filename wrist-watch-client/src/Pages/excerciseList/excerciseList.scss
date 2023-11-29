@@ -4,12 +4,13 @@
 @use "../../Styles/partials/typography" as *;
 
 .excerciselist {
+	padding-top: 2rem;
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
 	justify-content: center;
 	background-color: $Periwinkle;
-	padding-bottom: 100%;
+	height: 100vh;
 
 	&__name {
 		font-size: 2rem;

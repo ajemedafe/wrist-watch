@@ -3,6 +3,34 @@
 @use "../../Styles/partials/variables" as *;
 @use "../../Styles/partials/typography" as *;
 
+.choice {
+	&-window {
+		overflow: hidden;
+	}
+	&-title {
+		margin-bottom: 1rem;
+		width: 110%;
+		font-size: 1.3rem;
+
+		margin: 0 1rem;
+	}
+}
+
+.button {
+	&__wrapper {
+		display: flex;
+		justify-content: space-evenly;
+		margin: 2rem 3rem;
+	}
+
+	&-yes,
+	&-no {
+		width: 4.5rem;
+		height: 2rem;
+		background-color: $Periwinkle;
+	}
+}
+
 .video {
 	display: flex;
 	justify-content: center;
@@ -16,6 +44,7 @@
 
 	&__button {
 		width: 100%;
+		background-color: $Periwinkle;
 	}
 }
 

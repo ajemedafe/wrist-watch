@@ -90,17 +90,17 @@ function VideoChoiceWrist() {
 			<article className="choice-window">
 				{viewTitle && (
 					<>
-						<h1>Would you like to view excercise?</h1>
+						<h1 className="choice-title">Would you like to view excercise?</h1>
 					</>
 				)}
 
 				{viewButton && (
 					<>
-						<div>
-							<button type="submit" onClick={openVideo}>
+						<div className="button__wrapper">
+							<button className="button-yes" type="submit" onClick={openVideo}>
 								Yes
 							</button>
-							<button type="submit" onClick={closeWindow}>
+							<button className="button-no" type="submit" onClick={closeWindow}>
 								No
 							</button>
 						</div>

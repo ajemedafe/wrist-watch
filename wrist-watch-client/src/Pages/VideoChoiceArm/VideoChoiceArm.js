@@ -92,17 +92,17 @@ function VideoChoiceArm() {
 			<article className="choice-window">
 				{viewTitle && (
 					<>
-						<h1>Would you like to view excercise?</h1>
+						<h1 className="choice-title">Would you like to view excercise?</h1>
 					</>
 				)}
 
 				{viewButton && (
 					<>
-						<div>
-							<button type="submit" onClick={openVideo}>
+						<div className="button__wrapper">
+							<button className="button-yes" type="submit" onClick={openVideo}>
 								Yes
 							</button>
-							<button type="submit" onClick={closeWindow}>
+							<button className="button-no" type="submit" onClick={closeWindow}>
 								No
 							</button>
 						</div>
@@ -111,12 +111,15 @@ function VideoChoiceArm() {
 
 				{viewVideo && (
 					<>
-						<div>
+						<div className="video__wrapper">
 							<video width="560" height="315" controls>
 								<source src={armArray[randomInt].video} type="video/mp4" />
 							</video>
 						</div>
-						<button type="button" onClick={closeVideo}>
+						<button
+							className="video__button"
+							type="button"
+							onClick={closeVideo}>
 							close
 						</button>
 					</>

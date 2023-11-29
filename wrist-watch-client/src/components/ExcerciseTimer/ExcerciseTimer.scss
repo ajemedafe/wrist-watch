@@ -8,10 +8,17 @@
 	flex-direction: column;
 	background-color: $Periwinkle;
 	text-align: center;
+	width: 90vw;
+	height: 100vw;
 
 	&-logo {
 		padding: 1rem 0;
-		font-size: 4rem;
+		font-size: 3rem;
+	}
+
+	&-logo-img {
+		height: 12rem;
+		width: auto;
 	}
 
 	&-form {
@@ -31,21 +38,43 @@
 		margin-bottom: 1rem;
 	}
 
+	&-whole-group__wrapper {
+		padding: 1rem 2rem;
+		border: 1px solid black;
+		margin: 0 13rem;
+		border-radius: 0.4rem;
+	}
+
 	&-group__wrapper {
 		display: flex;
 		flex-direction: row;
-		justify-content: center;
+		justify-content: space-evenly;
 	}
 
 	&-timer__wrapper {
 		display: flex;
 		flex-direction: row;
 		justify-content: space-evenly;
-		padding-bottom: 100vh;
+	}
+
+	&-hours,
+	&-minutes,
+	&-seconds {
+		margin-bottom: 1rem;
 	}
 
 	&-input {
 		text-align: center;
 		width: 4rem;
+		border-radius: 0.5rem;
+	}
+
+	&-end {
+		padding: 1rem 0rem;
+	}
+
+	&-counter {
+		padding-bottom: 1rem;
+		font-size: 3rem;
 	}
 }
